@@ -650,11 +650,15 @@ _clone_() {
 	#		  $2 (Optional) - Directory to be cloned in
 	# OUTS:   Nothing
 
-	if [ -d "$2" ]; then
-		error "Directory $2 already exists"
-		return
+	if [ $# -gt 1 ]; then
+		if [ -d "$2" ]; then
+			error "Directory $2 already exists"
+			return
+		fi
+		git clone --quiet "$1" "$2"
+	else
+		git clone --quiet "$1"
 	fi
-	git clone --quiet "$1" "$2"
 }
 
 ##--> Initialize and run the script <--##
