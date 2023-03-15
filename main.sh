@@ -4,6 +4,8 @@
 
 # By: https://github.com/adityastomar67
 
+set -Eeuo pipefail
+
 ##--> Entry Point of the script <--##
 _mainScript_() {
 
@@ -13,6 +15,7 @@ _mainScript_() {
 
 ##--> Variables & Flags <--##
 # Set initial flags
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
 quiet=false
 LOGLEVEL=WARN
 verbose=false
