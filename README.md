@@ -1,6 +1,6 @@
 <div align = "center">
 
-<h1><a href="https://github.com/adityastomar67/StartPoint">StartPoint</a> - Minimalist template repository. ✨🛠</h1>
+<h1><a href="https://github.com/adityastomar67/StartPoint">Template.sh</a> - Best bash template script. ✨🛠</h1>
 
 <a href="https://github.com/adityastomar67/StartPoint/blob/main/LICENSE">
 <img alt="License" src="https://img.shields.io/github/license/adityastomar67/StartPoint?style=flat&color=eee&label="> </a>
@@ -89,6 +89,11 @@ StartPoint was inspired by `<reason/idea>`.
 <hr>
 
 <div align="center">
+
+```bash
+▀█▀ █▀▀ █▀▄▀█ █▀█ █   ▄▀█ ▀█▀ █▀▀   █▀ █ █
+ █  ██▄ █ ▀ █ █▀▀ █▄▄ █▀█  █  ██▄ ▄ ▄█ █▀█
+```
 
 <strong>⭐ hit the star button if you found this useful ⭐</strong><br>
 
