@@ -639,9 +639,6 @@ _getSystemInfo() {
 
 	# Check System Architecture
 	arch=$(uname -m)
-
-	#* Now lets find out about Package Manager
-	# PkgMgr="sudo $(cd Data && chmod +x pkgmngrcheck.sh && ./pkgmngrcheck.sh | cut -d " " -f3)"
 } 
 
 _clone_() {
@@ -650,9 +647,6 @@ _clone_() {
 	#		  $2 (Optional) - Directory to be cloned in
 	# OUTS:   Nothing
 
-	if [[ ! $(command -v git) ]]; then
-		__pkg_install git
-	fi
 	if [ -d "$2" ]; then
 		error "Directory $2 already exists"
 		return
