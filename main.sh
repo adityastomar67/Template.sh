@@ -4,8 +4,6 @@
 
 # By: https://github.com/adityastomar67
 
-set -Eeuo pipefail
-
 ##--> Entry Point of the script <--##
 _mainScript_() {
 
