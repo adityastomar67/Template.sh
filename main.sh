@@ -6,9 +6,7 @@
 
 ##--> Entry Point of the script <--##
 _mainScript_() {
-
-	echo -e "hello world"
-
+	echo -e "Welcome to Template.sh"
 }
 
 ##--> Variables & Flags <--##
@@ -179,15 +177,30 @@ _alert_() {
 	esac
 
 }
-
-error() { _alert_ error "${1}" "${2-}"; }
-warning() { _alert_ warning "${1}" "${2-}"; }
-notice() { _alert_ notice "${1}" "${2-}"; }
-info() { _alert_ info "${1}" "${2-}"; }
-success() { _alert_ success "${1}" "${2-}"; }
-dryrun() { _alert_ dryrun "${1}" "${2-}"; }
-input() { _alert_ input "${1}" "${2-}"; }
-header() { _alert_ header "== ${1} ==" "${2-}"; }
+error() { 
+	_alert_ error "❌ ${1}" "${2-}"; 
+}
+warning() { 
+	_alert_ warning "⚠️ ${1}" "${2-}"; 
+}
+notice() { 
+	_alert_ notice "📢 ${1}" "${2-}"; 
+}
+info() { 
+	_alert_ info "ℹ️ ${1}" "${2-}"; 
+}
+success() { 
+	_alert_ success "✓ ${1}" "${2-}"; 
+}
+dryrun() { 
+	_alert_ dryrun "${1}" "${2-}"; 
+}
+input() { 
+	_alert_ input "${1}" "${2-}"; 
+}
+header() { 
+	_alert_ header "== ${1} ==" "${2-}"; 
+}
 die() {
 	_alert_ fatal "${1}" "${2-}"
 	_safeExit_ "1"
@@ -196,8 +209,12 @@ fatal() {
 	_alert_ fatal "${1}" "${2-}"
 	_safeExit_ "1"
 }
-debug() { _alert_ debug "${1}" "${2-}"; }
-verbose() { _alert_ debug "${1}" "${2-}"; }
+debug() { 
+	_alert_ debug "${1}" "${2-}"; 
+}
+verbose() { 
+	_alert_ debug "${1}" "${2-}"; 
+}
 
 _usage_() {
 	cat <<EOF
@@ -673,3 +690,18 @@ set -o nounset                            # Disallow expansion of unset variable
 _parseOptions_ "$@"                       # Parse arguments passed to script
 _makeTempDir_ "$(basename "$0")"          # Create a temp directory '$tmpDir'
 _acquireScriptLock_                       # Acquire script lock
+
+##--> Script Flags <--##
+if [ $# -gt 0 ]; then
+		case "$1" in
+		-t | --temp)
+			_makeTempDir_ "$(basename "$0")"
+			;;
+		?)
+			echo "Template.sh usage: ./$(basename \$0) [-l] [-h] [-a somevalue]" >&2
+			exit 1
+			;;
+		esac
+	else
+		_mainScript_
+fi
